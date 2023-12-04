@@ -1,0 +1,11 @@
+project-root/
+|-- node_modules/
+|-- public/
+|   |-- assets/
+|       |-- js/
+|           |-- your JavaScript files
+|-- views/
+|   |-- your views/templates
+|-- app.js (or index.js, server.js, etc.)
+|-- package.json
+|-- other project files

@@ -13,6 +13,7 @@ app.set('views', path.join(__dirname, 'views')); // Change 'views' to the actual
 
 app.use(express.urlencoded({ extended: true }));
 
+// Serve static files with express, not working to serve css currently
 app.use(express.static(path.join(__dirname, 'assets')));
 app.use('/vendor', express.static(path.join(__dirname, 'assets', 'vendor')));
 app.use('/css', express.static(path.join(__dirname, 'assets', 'css')));
@@ -31,9 +32,9 @@ const knex = require('knex')({
 });
 
 // landing page view
-app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../index.html'));
-});
+// app.get('/', (req, res) => {
+//   res.sendFile(path.join(__dirname, '../../index.html'));
+// });
 
 // landing page view
 app.get('/index.html', (req, res) => {
@@ -65,18 +66,18 @@ app.get('/pages-contact.html', (req, res) => {
 // });
 
 // new admin report page view with ejs
-// app.get('/', async (req, res) => {
-//   try {
-//     // Execute the query and wait for the results
-//     const data = await knex.select().from('Social_Platform_Information');
+app.get('/', async (req, res) => {
+  try {
+    // Execute the query and wait for the results
+    const data = await knex.select().from('Test');
 
-//     // Render the EJS template and pass the data to it
-//     res.render('adminReports', { data });
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).send('Internal Server Error');
-//   }
-// });
+    // Render the EJS template and pass the data to it
+    res.render('adminReports', { data });
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Internal Server Error');
+  }
+});
 
 // posting to the database
 app.post('/surveyPost', async (req, res) => {

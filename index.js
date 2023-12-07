@@ -1,22 +1,18 @@
 const express = require('express');
 let app = express();
-let path = require('path');
-
-const CircularJSON = require('circular-json'); // Import circular-json
+var path = require('path');
 
 const port = 3000;
 
 app.set('view engine', 'ejs');
 
 // Set the views directory
-app.set('views', path.join(__dirname, 'views')); // Change 'views' to the actual directory where your EJS files are stored
+app.set('views', path.join(__dirname, 'views'));
 
 app.use(express.urlencoded({ extended: true }));
 
-// Serve static files with express, not working to serve css currently
-app.use(express.static(path.join(__dirname, 'assets')));
-app.use('/vendor', express.static(path.join(__dirname, 'assets', 'vendor')));
-app.use('/css', express.static(path.join(__dirname, 'assets', 'css')));
+// Serve static files with express
+app.use('/assets', express.static(path.join(__dirname, 'assets')));
 
 const knex = require('knex')({
   client: 'pg',
@@ -33,22 +29,22 @@ const knex = require('knex')({
 
 // landing page view
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../index.html'));
+  res.sendFile(path.join(__dirname, 'index.html'));
 });
 
 // landing page view
 app.get('/index.html', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../index.html'));
+  res.sendFile(path.join(__dirname, '/index.html'));
 });
 
 // FAQ page view
 app.get('/pages-faq.html', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../pages-faq.html'));
+  res.sendFile(path.join(__dirname, '/pages-faq.html'));
 });
 
 // pages-contact page view
 app.get('/pages-contact.html', (req, res) => {
-  res.sendFile(path.join(__dirname, '../../pages-contact.html'));
+  res.sendFile(path.join(__dirname, '/pages-contact.html'));
 });
 
 // new admin report page view with ejs

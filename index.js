@@ -74,7 +74,7 @@ app.post('/surveyPost', async (req, res) => {
     const Survey_Responses = {
       Origin: 'Provo',
       Date: new Date(),
-      Time: new Date(),
+      Time: new Date().toTimeString().slice(0, 8),
       Age: req.body.Age,
       Gender: req.body.Gender,
       Relationship_Status: req.body.Relationship_Status,

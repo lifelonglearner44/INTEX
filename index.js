@@ -21,7 +21,7 @@ const knex = require('knex')({
     host: process.env.RDS_HOSTNAME || 'localhost',
     user: process.env.RDS_USERNAME || 'postgres',
     password: process.env.RDS_PASSWORD || 'password',
-    database: process.env.RDS_DB_NAME || 'SocialMedia_MentalHealth_Database',
+    database: process.env.RDS_DB_NAME || 'ebdb',
     port: process.env.RDS_PORT || 5432,
     ssl: process.env.DB_SSL ? { rejectUnauthorized: false } : false,
   },
@@ -47,6 +47,11 @@ app.get('/pages-contact.html', (req, res) => {
   res.sendFile(path.join(__dirname, '/pages-contact.html'));
 });
 
+// survey page view
+app.get('/survey.html', (req, res) => {
+  res.sendFile(path.join(__dirname, '/survey.html'));
+});
+
 // new admin report page view with ejs
 app.get('/adminReports', async (req, res) => {
   try {
@@ -64,13 +69,40 @@ app.get('/adminReports', async (req, res) => {
 // posting to the database
 app.post('/surveyPost', async (req, res) => {
   try {
-    const formData = {
-      test: req.body.empFirst,
+    console.log('req.body:', req.body);
+    // console.log('req', req);
+    const Survey_Responses = {
+      Origin: 'Provo',
+      Date: new Date(),
+      Time: new Date(),
+      Age: req.body.Age,
+      Gender: req.body.Gender,
+      Relationship_Status: req.body.Relationship_Status,
+      Occupation_Status: req.body.Occupation_Status,
+      Use_Social_Media: req.body.Use_Social_Media,
+      Average_Usage_Hours: req.body.Average_Usage_Hours,
+      Without_Specific_Purpose: req.body.Without_Specific_Purpose,
+      Distracted_From_Tasks: req.body.Distracted_From_Tasks,
+      Restless_Without: req.body.Restless_Without,
+      Easily_Distracted: req.body.Easily_Distracted,
+      Bothered_By_Worries: req.body.Bothered_By_Worries,
+      Difficulty_Concentrating: req.body.Difficulty_Concentrating,
+      Comparison_Through_Social_Media: req.body.Comparison_Through_Social_Media,
+      Comparison_Feelings: req.body.Comparison_Feelings,
+      Validation_From_Social_Media: req.body.Validation_From_Social_Media,
+      Depressed_Or_Down: req.body.Depressed_Or_Down,
+      Interest_In_Daily_Activities: req.body.Interest_In_Daily_Activities,
+      Sleep_Issues: req.body.Sleep_Issues,
     };
+    console.log('Survey_Responses:', Survey_Responses);
 
-    const result = await knex('Test').insert(formData);
-    // console.log('Insert Result:', result);
-    // res.send('Data successfully inserted into the "Test" table!');
+    const result = await knex('Survey_Responses').insert(Survey_Responses);
+
+    console.log('Insert Result:', result);
+
+    // res.redirect('/index.html');
+
+    res.send('Data successfully inserted into the "Test" table!');
   } catch (error) {
     console.error('Database Insert Error:', error);
     res.status(500).send('Internal Server Error');

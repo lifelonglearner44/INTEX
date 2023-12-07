@@ -209,134 +209,444 @@
               <h5 class="card-title">Social Media and Mental Health Survey</h5>
 
               <!-- Vertical Form -->
-              <form class="row g-3">
+              <form class="row g-3" action="/surveyPost" method="POST">
                 <div class="col-12">
                   <label for="inputNanme4" class="form-label">
                     1. What is your age?
                   </label>
-                  <input type="text" class="form-control" id="inputNanme4" />
+                  <input
+                    type="number"
+                    max="120"
+                    min="1"
+                    class="form-control"
+                    id="Age"
+                    name="Age"
+                  />
                 </div>
                 <div class="col-12">
-                  <label for="inputNanme4" class="form-label">2. Gender</label>
-                  <input type="text" class="form-control" id="inputNanme4" />
+                  <label for="Gender" class="form-label">2. Gender</label>
+                  <!-- <input type="text" class="form-control" /> -->
+                  <div class="col-sm-10">
+                    <select
+                      class="form-select"
+                      aria-label="Default select example"
+                      id="Gender"
+                      name="Gender"
+                    >
+                      <option selected disabled>Choose One</option>
+                      <option value="Male">Male</option>
+                      <option value="Female">Female</option>
+                      <option value="Other">Other</option>
+                      <!-- should we provide other gender options????? -->
+                    </select>
+                  </div>
                 </div>
                 <div class="col-12">
-                  <label for="inputNanme4" class="form-label">
+                  <label for="Relationship_Status" class="form-label">
                     3. Relationship Status
                   </label>
-                  <input type="text" class="form-control" id="inputNanme4" />
+                  <!-- <input
+                    type="text"
+                    class="form-control"
+                  
+                  /> -->
+                  <div class="col-sm-10">
+                    <select
+                      class="form-select"
+                      aria-label="Default select example"
+                      id="Relationship_Status"
+                      name="Relationship_Status"
+                    >
+                      <option selected disabled>Choose One</option>
+                      <option value="1">Male</option>
+                      <option value="2">Female</option>
+                    </select>
+                  </div>
                 </div>
                 <div class="col-12">
-                  <label for="inputNanme4" class="form-label">
+                  <label for="Occupation_Status" class="form-label">
                     4. Occupation Status
                   </label>
-                  <input type="text" class="form-control" id="inputNanme4" />
+                  <!-- <input
+                    type="text"
+                    class="form-control"
+                 
+                  /> -->
+                  <div class="col-sm-10">
+                    <select
+                      class="form-select"
+                      aria-label="Default select example"
+                      id="Occupation_Status"
+                      name="Occupation_Status"
+                    >
+                      <option selected disabled>Choose One</option>
+                      <option value="1">Male</option>
+                      <option value="2">Female</option>
+                    </select>
+                  </div>
                 </div>
                 <div class="col-12">
-                  <label for="inputNanme4" class="form-label">
+                  <label for="organizations" class="form-label">
                     5. What type of organizations are you affiliated with?
+                    (Select All That Appy)
                   </label>
-                  <input type="text" class="form-control" id="inputNanme4" />
+                  <div class="col-sm-10">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="gridCheck1"
+                      />
+                      <label class="form-check-label" for="gridCheck1">
+                        Example checkbox
+                      </label>
+                    </div>
+
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="gridCheck2"
+                        checked
+                      />
+                      <label class="form-check-label" for="gridCheck2">
+                        Example checkbox 2
+                      </label>
+                    </div>
+                  </div>
+                  <!-- <input
+                    type="text"
+                    class="form-control"
+                   
+                  /> -->
+                  <!-- <div class="col-sm-10">
+                    <select
+                      class="form-select"
+                      multiple
+                      aria-label="multiple select example"
+                      id="organizations"
+                      name="organizations"
+                    >
+                      <option selected disabled>Select Multiple</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                  </div> -->
                 </div>
                 <div class="col-12">
                   <label for="inputNanme4" class="form-label">
                     6. Do you use social media?
                   </label>
-                  <input type="text" class="form-control" id="inputNanme4" />
+
+                  <!-- <input
+                    type="text"
+                    class="form-control"
+                    id="Use_Social_Media"
+                    name="Use_Social_Media"
+                  /> -->
+                  <div class="col-sm-10">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        id="Use_Social_MediaY"
+                        name="Use_Social_Media"
+                        name="gridRadios"
+                        id="gridRadios1"
+                        value="Yes"
+                        checked
+                      />
+                      <label class="form-check-label" for="Use_Social_MediaY">
+                        Yes
+                      </label>
+                    </div>
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="radio"
+                        id="Use_Social_MediaN"
+                        name="Use_Social_Media"
+                        value="No"
+                      />
+                      <label class="form-check-label" for="Use_Social_MediaN">
+                        No
+                      </label>
+                    </div>
+                  </div>
                 </div>
                 <div class="col-12">
-                  <label for="inputNanme4" class="form-label">
-                    7. What social media platforms do you commonly use?
+                  <label for="SocialPlatorms" class="form-label">
+                    7. What social media platforms do you commonly use? (Select
+                    All That Appy)
                   </label>
-                  <input type="text" class="form-control" id="inputNanme4" />
+                  <div class="col-sm-10">
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="gridCheck1"
+                      />
+                      <label class="form-check-label" for="gridCheck1">
+                        Example checkbox
+                      </label>
+                    </div>
+
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="gridCheck2"
+                        checked
+                      />
+                      <label class="form-check-label" for="gridCheck2">
+                        Example checkbox 2
+                      </label>
+                    </div>
+                  </div>
+                  <!-- <input
+                    type="text"
+                    class="form-control"
+                   /> -->
+                  <!-- <div class="col-sm-10">
+                    <select
+                      class="form-select"
+                      multiple
+                      aria-label="multiple select example"
+                      id="SocialPlatorms"
+                      name="SocialPlatorms"
+                    >
+                      <option selected disabled>Open this select menu</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                  </div> -->
                 </div>
                 <div class="col-12">
-                  <label for="inputNanme4" class="form-label">
+                  <label for="Average_Usage_Hours" class="form-label">
                     8. What is the average time you spend on social media every
                     day?
                   </label>
-                  <input type="text" class="form-control" id="inputNanme4" />
+                  <!-- <input
+                    type="text"
+                    class="form-control"
+          
+                  /> -->
+                  <div class="col-sm-10">
+                    <select
+                      class="form-select"
+                      aria-label="Default select example"
+                      id="Average_Usage_Hours"
+                      name="Average_Usage_Hours"
+                    >
+                      <option selected disabled>Choose One</option>
+                      <option value="1">Male</option>
+                      <option value="2">Female</option>
+                    </select>
+                  </div>
                 </div>
                 <div class="col-12">
-                  <label for="inputNanme4" class="form-label">
+                  <label for="Without_Specific_Purpose" class="form-label">
                     9. How often do you find yourself using Social media without
                     a specific purpose?
                   </label>
-                  <input type="text" class="form-control" id="inputNanme4" />
+                  <input
+                    type="number"
+                    min="1"
+                    max="5"
+                    class="form-control"
+                    name="Without_Specific_Purpose"
+                    id="Without_Specific_Purpose"
+                  />
+
+                  <!-- tried to use a number range, it is suprisingly difficult -->
+
+                  <!-- <input
+                    type="range"
+                    class="form-range"
+                    min="0"
+                    max="100"
+                    step="25"
+                    list="steplist"
+                  />
+                  <datalist id="steplist">
+                    <option>0</option>
+                    <option>25</option>
+                    <option>50</option>
+                    <option>75</option>
+                    <option>100</option>
+                  </datalist> -->
+                  <!-- <input
+                    type="range"
+                    class="form-range"
+                    id="Without_Specific_Purpose"
+                    name="Without_Specific_Purpose"
+                    max="5"
+                    min="1"
+                    step="1"
+                    value="3"
+                    list="tickmarks"
+                  />
+                  <datalist id="tickmarks">
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                  </datalist> -->
                 </div>
+
                 <div class="col-12">
                   <label for="inputNanme4" class="form-label">
                     10. How often do you get distracted by Social media when you
                     are busy doing something?
                   </label>
-                  <input type="text" class="form-control" id="inputNanme4" />
+                  <input
+                    type="number"
+                    min="1"
+                    max="5"
+                    class="form-control"
+                    id="Distracted_From_Tasks"
+                    name="Distracted_From_Tasks"
+                  />
                 </div>
                 <div class="col-12">
                   <label for="inputNanme4" class="form-label">
                     11. Do you feel restless if you haven't used Social media in
                     a while?
                   </label>
-                  <input type="text" class="form-control" id="inputNanme4" />
+                  <input
+                    type="number"
+                    min="1"
+                    max="5"
+                    class="form-control"
+                    id="Restless_Without"
+                    name="Restless_Without"
+                  />
                 </div>
                 <div class="col-12">
                   <label for="inputNanme4" class="form-label">
                     12. On a scale of 1 to 5, how easily distracted are you?
                   </label>
-                  <input type="number" class="form-control" id="inputNanme4" />
+                  <input
+                    type="number"
+                    min="1"
+                    max="5"
+                    class="form-control"
+                    id="Easily_Distracted"
+                    name="Easily_Distracted"
+                  />
                 </div>
                 <div class="col-12">
                   <label for="inputNanme4" class="form-label">
                     13. On a scale of 1 to 5, how much are you bothered by
                     worries?
                   </label>
-                  <input type="number" class="form-control" id="inputNanme4" />
+                  <input
+                    type="number"
+                    min="1"
+                    max="5"
+                    class="form-control"
+                    id="Bothered_By_Worries"
+                    name="Bothered_By_Worries"
+                  />
                 </div>
                 <div class="col-12">
                   <label for="inputNanme4" class="form-label">
                     14. Do you find it difficult to concentrate on things?
                   </label>
-                  <input type="number" class="form-control" id="inputNanme4" />
+                  <input
+                    type="number"
+                    min="1"
+                    max="5"
+                    class="form-control"
+                    id="Difficulty_Concentrating"
+                    name="Difficulty_Concentrating"
+                  />
                 </div>
                 <div class="col-12">
                   <label for="inputNanme4" class="form-label">
                     15. On a scale of 1-5, how often do you compare yourself to
                     other successful people through the use of social media?
                   </label>
-                  <input type="number" class="form-control" id="inputNanme4" />
+                  <input
+                    type="number"
+                    min="1"
+                    max="5"
+                    class="form-control"
+                    id="Comparison_Through_Social_Media"
+                    name="Comparison_Through_Social_Media"
+                  />
                 </div>
                 <div class="col-12">
                   <label for="inputNanme4" class="form-label">
                     16. Following the previous question, how do you feel about
                     these comparisons, generally speaking?
                   </label>
-                  <input type="number" class="form-control" id="inputNanme4" />
+                  <input
+                    type="number"
+                    min="1"
+                    max="5"
+                    class="form-control"
+                    id="Comparison_Feelings"
+                    name="Comparison_Feelings"
+                  />
                 </div>
                 <div class="col-12">
                   <label for="inputNanme4" class="form-label">
                     17. How often do you look to seek validation from features
                     of social media?
                   </label>
-                  <input type="number" class="form-control" id="inputNanme4" />
+                  <input
+                    type="number"
+                    min="1"
+                    max="5"
+                    class="form-control"
+                    id="Validation_From_Social_Media"
+                    name="Validation_From_Social_Media"
+                  />
                 </div>
                 <div class="col-12">
                   <label for="inputNanme4" class="form-label">
                     18. How often do you feel depressed or down?
                   </label>
-                  <input type="number" class="form-control" id="inputNanme4" />
+                  <input
+                    type="number"
+                    min="1"
+                    max="5"
+                    class="form-control"
+                    id="Depressed_Or_Down"
+                    name="Depressed_Or_Down"
+                  />
                 </div>
                 <div class="col-12">
                   <label for="inputNanme4" class="form-label">
                     19. On a scale of 1 to 5, how frequently does your interest
                     in daily activities fluctuate?
                   </label>
-                  <input type="number" class="form-control" id="inputNanme4" />
+                  <input
+                    type="number"
+                    min="1"
+                    max="5"
+                    class="form-control"
+                    id="Interest_In_Daily_Activities"
+                    name="Interest_In_Daily_Activities"
+                  />
                 </div>
                 <div class="col-12">
                   <label for="inputNanme4" class="form-label">
                     20. On a scale of 1 to 5, how often do you face issues
                     regarding sleep?
                   </label>
-                  <input type="number" class="form-control" id="inputNanme4" />
+                  <input
+                    type="number"
+                    min="1"
+                    max="5"
+                    class="form-control"
+                    id="Sleep_Issues"
+                    name="Sleep_Issues"
+                  />
                 </div>
 
                 <!-- <div class="col-12">
@@ -362,6 +672,7 @@
                     placeholder="1234 Main St"
                   />
                 </div> -->
+
                 <div class="text-center">
                   <button type="submit" class="btn btn-primary">Submit</button>
                   <button type="reset" class="btn btn-secondary">Reset</button>

@@ -32,9 +32,9 @@ const knex = require('knex')({
 });
 
 // landing page view
-// app.get('/', (req, res) => {
-//   res.sendFile(path.join(__dirname, '../../index.html'));
-// });
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '../../index.html'));
+});
 
 // landing page view
 app.get('/index.html', (req, res) => {
@@ -51,22 +51,8 @@ app.get('/pages-contact.html', (req, res) => {
   res.sendFile(path.join(__dirname, '../../pages-contact.html'));
 });
 
-// // old admin report page view
-// app.get('/', async (req, res) => {
-//   try {
-//     // Execute the query and wait for the results
-//     const data = await knex.select().from('Social_Platform_Information');
-
-//     // Send the query results as a response
-//     res.json(data);
-//   } catch (error) {
-//     console.error(error);
-//     res.status(500).send('Internal Server Error');
-//   }
-// });
-
 // new admin report page view with ejs
-app.get('/', async (req, res) => {
+app.get('/adminReports', async (req, res) => {
   try {
     // Execute the query and wait for the results
     const data = await knex.select().from('Test');

@@ -105,6 +105,8 @@
         </li>
         <!-- End Contact Page Nav -->
 
+        <!-- In the future, there will only be one nav item - admin login, then once on the admin side, 
+          the user can view the report and create a new account (maybe they will also edit their profile) -->
         <li class="nav-item">
           <a
             class="nav-link collapsed"
@@ -121,6 +123,12 @@
             class="nav-content collapse"
             data-bs-parent="#sidebar-nav"
           >
+            <li>
+              <a href="pages-register.html">
+                <i class="bi bi-circle"></i>
+                <span>Admin Register</span>
+              </a>
+            </li>
             <li>
               <a href="pages-login.html">
                 <i class="bi bi-circle"></i>
@@ -157,6 +165,55 @@
         </nav>
       </div>
       <!-- End Page Title -->
+
+      <!-- example form submission to db -->
+      <form action="/surveyPost" method="POST">
+        <fieldset style="width: 0px">
+          <br />
+          <legend>Employee Info:</legend>
+          <label for="empFirst">First Name:</label>
+          <input type="text" id="empFirst" name="empFirst" />
+          <br />
+          <br />
+          <!-- <label for="empLast">Last Name:</label>
+          <input type="text" id=" empLast " name="empLast" />
+          <br />
+          <br />
+          <fieldset>
+            <legend>Work Status:</legend>
+            <input
+              type="radio"
+              id="rbFulltime"
+              name="workstatus"
+              value="F"
+              checked
+            />
+            <label for="rbFulltime">Full-time</label>
+            <br />
+            <input type="radio" id="rbParttime" name="workstatus" value="P" />
+            <label for="rbParttime">Part-time</label>
+            <br />
+          </fieldset>
+          <br /> -->
+        </fieldset>
+        <br />
+        <button type="submit">Save</button>
+      </form>
+
+      <!-- example data pull from db -->
+      <form action="editEmployee" method="GET">
+        <label for="FirstName">Enter First Name:</label>
+        <input id="FirstName" type="text" name="FirstName" />
+        <br />
+        <label for="LastName">Enter Last Name:</label>
+        <input id="LastName" type="text" name="LastName" />
+        <br />
+        <label for="Email">Receive Emails?</label>
+        <input id="Email" type="checkbox" name="Email" value="Y" checked />
+        <br />
+        <input type="submit" value="Update" />
+      </form>
+      <!-- end example -->
       <section class="section">
         <div class="row align-items-top">
           <div class="col-lg-6">

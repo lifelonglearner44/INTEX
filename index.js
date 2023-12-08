@@ -10,23 +10,24 @@ const port = process.env.PORT || 3000;
 // Set up express-session middleware
 app.use(
   session({
-    secret: 'your-secret-key', // Replace with a strong secret key
+    secret: 'lksajdflkj--DFASDFASD-laskfdjlkasdjf_FADSASDF',
     resave: false,
     saveUninitialized: false,
   })
 );
 
-// Your authentication middleware
+// authentication middleware
 const authenticate = (req, res, next) => {
   if (req.session && req.session.loggedIn) {
     // User is logged in, continue to the next middleware
     next();
   } else {
     // User is not logged in, redirect to the login page
-    res.redirect('/index.html'); // Replace '/login' with your login page route
+    res.redirect('/index.html');
   }
 };
 
+// set the view engine to ejs
 app.set('view engine', 'ejs');
 
 // Set the views directory
@@ -51,24 +52,6 @@ const knex = require('knex')({
     ssl: process.env.DB_SSL ? { rejectUnauthorized: false } : false,
   },
 });
-
-// landing page views with ejs and authentication
-
-// app.get('/adminIndex.ejs', authenticate, async (req, res) => {
-//   // const isAuthenticated = req.isAuthenticated();
-//   const isAuthenticated = req.session.loggedIn;
-//   console.log('isAuthenticated', isAuthenticated);
-//   // Render the landing page with authentication status
-//   res.render('adminIndex', { isAuthenticated });
-// });
-
-// // landing page view
-// app.get('/index.html', authenticate, async (req, res) => {
-//   const isAuthenticated = req.authenticate();
-
-//   // Render the landing page with authentication status
-//   res.render('index', { isAuthenticated });
-// });
 
 // landing page view
 app.get('/', (req, res) => {
@@ -117,35 +100,11 @@ app.get('/users-profile.html', (req, res) => {
   res.sendFile(path.join(__dirname, '/users-profile.html'));
 });
 
-// ,
-
-// new admin report page view with ejs
+//  admin report page view with ejs
 app.get('/adminReport.ejs', authenticate, async (req, res) => {
   try {
     const isAuthenticated = req.session.loggedIn;
 
-    // Fetch data from the database using knex if needed
-    // const data = await knex('Survey_Responses')
-    //   .select('*')
-    //   .join(
-    //     'Main',
-    //     'Survey_Responses.Survey_Response_ID',
-    //     '=',
-    //     'Main.Survey_Response_ID'
-    //   )
-    //   .join(
-    //     'Organization_Information',
-    //     'Main.Organization_ID',
-    //     '=',
-    //     'Organization_Information.Organization_ID'
-    //   )
-    //   .join(
-    //     'Social_Platform_Information',
-    //     'Main.Social_Platform_ID',
-    //     '=',
-    //     'Social_Platform_Information.Social_Platform_ID'
-    //   )
-    //   .orderBy('Survey_Responses.Survey_Response_ID', 'asc');
     const data = await knex.select().from('Survey_Responses');
 
     // Render the EJS template
@@ -163,8 +122,6 @@ app.post('/loginAttempt', async (req, res) => {
     console.log('req.body:', req.body);
     const { Username, Password } = req.body;
 
-    // Query the database to check if the provided credentials match a user
-
     // *** remove the .first()
     const user = await knex('User').where({ Username, Password }).first();
     console.log('user', user);
@@ -172,14 +129,7 @@ app.post('/loginAttempt', async (req, res) => {
     if (user) {
       // Set the session variable on successful login
       req.session.loggedIn = true;
-      // res.send('Logged in successfully!');
       res.redirect('/adminReport.ejs');
-      // if (user.Is_Admin === true) {
-      //   res.redirect('/pages-register.html');
-      // } else {
-      //   // If a user is found, redirect to the user profile page
-      //   res.redirect('/users-profile.html');
-      // }
     } else {
       // If no user is found, handle the authentication failure
       res.status(401).send('Invalid username or password');
@@ -199,7 +149,7 @@ app.get('/logout', (req, res) => {
       console.error(err);
     }
     // Redirect to the login page after logout
-    res.redirect('/index.html'); // Replace '/login' with your login page route
+    res.redirect('/index.html');
   });
 });
 // posting to the database
@@ -232,9 +182,9 @@ app.post('/registerNewAccount', async (req, res) => {
 // posting to the database
 app.post('/surveyPost', async (req, res) => {
   try {
-    console.log('req.body:', req.body);
-    console.log('req', req);
+    // console.log('req.body:', req.body);
     // console.log('req', req);
+    // // console.log('req', req);
     const Survey_Responses = {
       Origin: 'Provo',
       Date: new Date(),
@@ -259,7 +209,7 @@ app.post('/surveyPost', async (req, res) => {
       Sleep_Issues: req.body.Sleep_Issues,
     };
 
-    console.log('Survey_Responses:', Survey_Responses);
+    // console.log('Survey_Responses:', Survey_Responses);
 
     const surveyResult = await knex('Survey_Responses')
       .insert(Survey_Responses)
@@ -271,21 +221,22 @@ app.post('/surveyPost', async (req, res) => {
     // Now you can use Survey_Response_ID in your subsequent logic
     console.log('Generated Survey_Response_ID:', Survey_Response_ID);
 
-    console.log('Insert survey Result:', surveyResult);
-    console.log('id', surveyResult[0]);
     // console.log('Insert survey Result:', surveyResult);
-    console.log('req.body.Organization_ID:', req.body.Organization_ID);
-    console.log('req.body.Social_Platform_ID:', req.body.Social_Platform_ID);
+    // console.log('id', surveyResult[0]);
+    // // console.log('Insert survey Result:', surveyResult);
+    // console.log('req.body.Organization_ID:', req.body.Organization_ID);
+    // console.log('req.body.Social_Platform_ID:', req.body.Social_Platform_ID);
 
     //  Survey_Response_ID: 1,
     // req.body.Organization_ID,
     // const Survey_Response_ID = 1;
     const Organization_IDs = req.body.Organization_ID || []; // Set your desired Organization_ID
     const Social_Platform_IDs = req.body.Social_Platform_ID || [];
-    console.log('Organization_IDs', Organization_IDs);
-    console.log('Social_Platform_IDs', Social_Platform_IDs);
+    // console.log('Organization_IDs', Organization_IDs);
+    // console.log('Social_Platform_IDs', Social_Platform_IDs);
     const mainEntries = [];
 
+    // loop through the Organization_IDs and Social_Platform_IDs arrays
     for (const organizationID of Organization_IDs) {
       for (const socialPlatformID of Social_Platform_IDs) {
         mainEntries.push({
@@ -296,9 +247,9 @@ app.post('/surveyPost', async (req, res) => {
       }
     }
 
-    console.log('Main Entries:', mainEntries);
+    // console.log('Main Entries:', mainEntries);
 
-    // Use a for...of loop to insert each entry into the 'Main' table
+    // Use a for loop to insert each entry into the 'Main' table
     for (const entry of mainEntries) {
       try {
         await knex('Main').insert(entry);
@@ -307,9 +258,6 @@ app.post('/surveyPost', async (req, res) => {
         console.error('Error inserting:', error);
       }
     }
-    // console.log('Main Result:', mainResult);
-
-    // res.redirect('/index.html');
 
     res.send('Data successfully inserted into the table!');
   } catch (error) {
@@ -318,7 +266,7 @@ app.post('/surveyPost', async (req, res) => {
   }
 });
 
-// above with ejs
+// listen message
 app.listen(port, () =>
   console.log(`Server is running on http://localhost:${port}`)
 );

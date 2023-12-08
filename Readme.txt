@@ -1,10 +1,5 @@
 # Provo City Social Media Health Committee Website - README
 
-## Login Credentials:
-
-- **USERNAME:** admin
-- **PASSWORD:** password
-
 ## Group:
 
 - **Group Number:** 1-1

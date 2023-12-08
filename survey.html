@@ -64,22 +64,29 @@
     <aside id="sidebar" class="sidebar">
       <ul class="sidebar-nav" id="sidebar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="index.html">
+          <a class="nav-link collapsed" href="index.html">
             <i class="bi bi-grid"></i>
             <span>Home</span>
           </a>
         </li>
-        <!-- End Dashboard Nav -->
+
         <li class="nav-item">
           <a class="nav-link collapsed" href="dashboard.html">
-            <i class="bi bi-person"></i>
+            <i class="bi bi-bar-chart"></i>
             <span>Social Media Dashboard</span>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link collapsed" href="survey.html">
-            <i class="bi bi-person"></i>
+          <a class="nav-link" href="survey.html">
+            <i class="bi bi-menu-button-wide"></i>
             <span>Social Media Survey</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="pages-contact.html">
+            <i class="bi bi-envelope"></i>
+            <span>Contact</span>
           </a>
         </li>
 
@@ -89,121 +96,19 @@
             <span>F.A.Q</span>
           </a>
         </li>
-        <!-- End F.A.Q Page Nav -->
-
-        <li class="nav-item">
-          <a class="nav-link collapsed" href="pages-contact.html">
-            <i class="bi bi-envelope"></i>
-            <span>Contact</span>
+        <li>
+          <a class="nav-link collapsed" href="pages-login.html">
+            <i class="bi bi-person"></i>
+            <span>Admin Login</span>
           </a>
         </li>
-        <!-- End Contact Page Nav -->
-
-        <li class="nav-item">
-          <a
-            class="nav-link collapsed"
-            data-bs-target="#components-nav"
-            data-bs-toggle="collapse"
-            href="#"
-          >
-            <i class="bi bi-menu-button-wide"></i>
-            <span>Admin</span>
-            <i class="bi bi-chevron-down ms-auto"></i>
-          </a>
-          <ul
-            id="components-nav"
-            class="nav-content collapse"
-            data-bs-parent="#sidebar-nav"
-          >
-            <li>
-              <a href="pages-login.html">
-                <i class="bi bi-circle"></i>
-                <span>Admin Login</span>
-              </a>
-            </li>
-            <li>
-              <a href="adminReport.html">
-                <i class="bi bi-circle"></i>
-                <span>Admin Report</span>
-              </a>
-            </li>
-            <li>
-              <a href="users-profile.html">
-                <i class="bi bi-circle"></i>
-                <span>Admin Profile</span>
-              </a>
-            </li>
-          </ul>
-        </li>
-        <!-- End Components Nav -->
       </ul>
     </aside>
     <!-- End Sidebar-->
 
     <main id="main" class="main">
-      <div class="pagetitle">
-        <h1>Home</h1>
-        <nav>
-          <ol class="breadcrumb">
-            <!-- <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-            <li class="breadcrumb-item active">Dashboard</li> -->
-          </ol>
-        </nav>
-      </div>
-      <!-- End Page Title -->
       <section class="section">
         <div class="row align-items-top">
-          <div class="col-lg-6">
-            <!-- example form submission to db -->
-            <form action="/surveyPost" method="POST">
-              <fieldset style="width: 0px">
-                <br />
-                <legend>Employee Info:</legend>
-                <label for="empFirst">First Name:</label>
-                <input type="text" id="empFirst" name="empFirst" />
-                <br />
-                <br />
-                <!-- <label for="empLast">Last Name:</label>
-          <input type="text" id=" empLast " name="empLast" />
-          <br />
-          <br />
-          <fieldset>
-            <legend>Work Status:</legend>
-            <input
-              type="radio"
-              id="rbFulltime"
-              name="workstatus"
-              value="F"
-              checked
-            />
-            <label for="rbFulltime">Full-time</label>
-            <br />
-            <input type="radio" id="rbParttime" name="workstatus" value="P" />
-            <label for="rbParttime">Part-time</label>
-            <br />
-          </fieldset>
-          <br /> -->
-              </fieldset>
-              <br />
-              <button type="submit">Save</button>
-            </form>
-
-            <!-- Default Card -->
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Site Purpose</h5>
-                The purpose of this site is to improve the mental health of
-                Provo residents. Please take our survey on Social Media and
-                Mental health to help us know how to best help Provo residents.
-                <br />
-                <br />
-                Also, check out our dashboard to find insights about how Provo
-                residents are doing with their media use and mental health.
-              </div>
-            </div>
-
-            <!-- End Default Card -->
-          </div>
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">Social Media and Mental Health Survey</h5>
@@ -248,7 +153,7 @@
                   <!-- <input
                     type="text"
                     class="form-control"
-                  
+                 
                   /> -->
                   <div class="col-sm-10">
                     <select
@@ -258,8 +163,12 @@
                       name="Relationship_Status"
                     >
                       <option selected disabled>Choose One</option>
-                      <option value="1">Male</option>
-                      <option value="2">Female</option>
+                      <option value="In a relationship">
+                        In a relationship
+                      </option>
+                      <option value="Married">Married</option>
+                      <option value="Divorced">Divorced</option>
+                      <option value="Single">Single</option>
                     </select>
                   </div>
                 </div>
@@ -270,7 +179,7 @@
                   <!-- <input
                     type="text"
                     class="form-control"
-                 
+                
                   /> -->
                   <div class="col-sm-10">
                     <select
@@ -280,25 +189,31 @@
                       name="Occupation_Status"
                     >
                       <option selected disabled>Choose One</option>
-                      <option value="1">Male</option>
-                      <option value="2">Female</option>
+                      <option value="University Student">
+                        University Student
+                      </option>
+                      <option value="School Student">School Student</option>
+                      <option value="Retired">Retired</option>
+                      <option value="Salaried Worker">Salaried Worker</option>
                     </select>
                   </div>
                 </div>
                 <div class="col-12">
                   <label for="organizations" class="form-label">
                     5. What type of organizations are you affiliated with?
-                    (Select All That Appy)
+                    (Select All That Apply)
                   </label>
                   <div class="col-sm-10">
                     <div class="form-check">
                       <input
                         class="form-check-input"
                         type="checkbox"
-                        id="gridCheck1"
+                        id="Company"
+                        value="1"
+                        name="Organization_ID"
                       />
-                      <label class="form-check-label" for="gridCheck1">
-                        Example checkbox
+                      <label class="form-check-label" for="Company">
+                        Company
                       </label>
                     </div>
 
@@ -306,18 +221,69 @@
                       <input
                         class="form-check-input"
                         type="checkbox"
-                        id="gridCheck2"
-                        checked
+                        id="Government"
+                        value="2"
+                        name="Organization_ID"
                       />
-                      <label class="form-check-label" for="gridCheck2">
-                        Example checkbox 2
+                      <label class="form-check-label" for="Government">
+                        Government
                       </label>
+                    </div>
+
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="Private"
+                        value="3"
+                        name="Organization_ID"
+                      />
+                      <label class="form-check-label" for="Private">
+                        Private
+                      </label>
+                    </div>
+
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="School"
+                        value="4"
+                        name="Organization_ID"
+                      />
+                      <label class="form-check-label" for="School">
+                        School
+                      </label>
+                    </div>
+
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="University"
+                        value="5"
+                        name="Organization_ID"
+                      />
+                      <label class="form-check-label" for="University">
+                        University
+                      </label>
+                    </div>
+
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="N/A"
+                        value="6"
+                        name="Organization_ID"
+                      />
+                      <label class="form-check-label" for="N/A">N/A</label>
                     </div>
                   </div>
                   <!-- <input
                     type="text"
                     class="form-control"
-                   
+                  
                   /> -->
                   <!-- <div class="col-sm-10">
                     <select
@@ -378,17 +344,19 @@
                 <div class="col-12">
                   <label for="SocialPlatorms" class="form-label">
                     7. What social media platforms do you commonly use? (Select
-                    All That Appy)
+                    All That Apply)
                   </label>
                   <div class="col-sm-10">
                     <div class="form-check">
                       <input
                         class="form-check-input"
                         type="checkbox"
-                        id="gridCheck1"
+                        id="Facebook"
+                        value="1"
+                        name="Social_Platform_ID"
                       />
-                      <label class="form-check-label" for="gridCheck1">
-                        Example checkbox
+                      <label class="form-check-label" for="Facebook">
+                        Facebook
                       </label>
                     </div>
 
@@ -396,11 +364,103 @@
                       <input
                         class="form-check-input"
                         type="checkbox"
-                        id="gridCheck2"
-                        checked
+                        id="Twitter"
+                        value="2"
+                        name="Social_Platform_ID"
                       />
-                      <label class="form-check-label" for="gridCheck2">
-                        Example checkbox 2
+                      <label class="form-check-label" for="Twitter">
+                        Twitter
+                      </label>
+                    </div>
+
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="Instagram"
+                        value="3"
+                        name="Social_Platform_ID"
+                      />
+                      <label class="form-check-label" for="Instagram">
+                        Instagram
+                      </label>
+                    </div>
+
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="YouTube"
+                        value="4"
+                        name="Social_Platform_ID"
+                      />
+                      <label class="form-check-label" for="YouTube">
+                        YouTube
+                      </label>
+                    </div>
+
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="Discord"
+                        value="5"
+                        name="Social_Platform_ID"
+                      />
+                      <label class="form-check-label" for="Discord">
+                        Discord
+                      </label>
+                    </div>
+
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="Reddit"
+                        value="6"
+                        name="Social_Platform_ID"
+                      />
+                      <label class="form-check-label" for="Reddit">
+                        Reddit
+                      </label>
+                    </div>
+
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="Pinterest"
+                        value="7"
+                        name="Social_Platform_ID"
+                      />
+                      <label class="form-check-label" for="Pinterest">
+                        Pinterest
+                      </label>
+                    </div>
+
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="TikTok"
+                        value="8"
+                        name="Social_Platform_ID"
+                      />
+                      <label class="form-check-label" for="TikTok">
+                        TikTok
+                      </label>
+                    </div>
+
+                    <div class="form-check">
+                      <input
+                        class="form-check-input"
+                        type="checkbox"
+                        id="Snapchat"
+                        value="9"
+                        name="Social_Platform_ID"
+                      />
+                      <label class="form-check-label" for="Snapchat">
+                        Snapchat
                       </label>
                     </div>
                   </div>
@@ -431,7 +491,7 @@
                   <!-- <input
                     type="text"
                     class="form-control"
-          
+         
                   /> -->
                   <div class="col-sm-10">
                     <select
@@ -441,8 +501,24 @@
                       name="Average_Usage_Hours"
                     >
                       <option selected disabled>Choose One</option>
-                      <option value="1">Male</option>
-                      <option value="2">Female</option>
+                      <option value="Less than an Hour">
+                        Less than an Hour
+                      </option>
+                      <option value="Between 1 and 2 hours">
+                        Between 1 and 2 hours
+                      </option>
+                      <option value="Between 2 and 3 hours">
+                        Between 2 and 3 hours
+                      </option>
+                      <option value="Between 3 and 4 hours">
+                        Between 3 and 4 hours
+                      </option>
+                      <option value="Between 4 and 5 hours">
+                        Between 4 and 5 hours
+                      </option>
+                      <option value="More than 5 hours">
+                        More than 5 hours
+                      </option>
                     </select>
                   </div>
                 </div>
@@ -675,235 +751,11 @@
 
                 <div class="text-center">
                   <button type="submit" class="btn btn-primary">Submit</button>
-                  <button type="reset" class="btn btn-secondary">Reset</button>
                 </div>
               </form>
+
               <!-- Vertical Form -->
             </div>
-          </div>
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">General Form Elements</h5>
-
-              <!-- General Form Elements -->
-              <form>
-                <div class="row mb-3">
-                  <label for="inputText" class="col-sm-2 col-form-label">
-                    Text
-                  </label>
-                  <div class="col-sm-10">
-                    <input type="text" class="form-control" />
-                  </div>
-                </div>
-                <div class="row mb-3">
-                  <label for="inputEmail" class="col-sm-2 col-form-label">
-                    Email
-                  </label>
-                  <div class="col-sm-10">
-                    <input type="email" class="form-control" />
-                  </div>
-                </div>
-                <div class="row mb-3">
-                  <label for="inputPassword" class="col-sm-2 col-form-label">
-                    Password
-                  </label>
-                  <div class="col-sm-10">
-                    <input type="password" class="form-control" />
-                  </div>
-                </div>
-                <div class="row mb-3">
-                  <label for="inputNumber" class="col-sm-2 col-form-label">
-                    Number
-                  </label>
-                  <div class="col-sm-10">
-                    <input type="number" class="form-control" />
-                  </div>
-                </div>
-                <div class="row mb-3">
-                  <label for="inputNumber" class="col-sm-2 col-form-label">
-                    File Upload
-                  </label>
-                  <div class="col-sm-10">
-                    <input class="form-control" type="file" id="formFile" />
-                  </div>
-                </div>
-                <div class="row mb-3">
-                  <label for="inputDate" class="col-sm-2 col-form-label">
-                    Date
-                  </label>
-                  <div class="col-sm-10">
-                    <input type="date" class="form-control" />
-                  </div>
-                </div>
-                <div class="row mb-3">
-                  <label for="inputTime" class="col-sm-2 col-form-label">
-                    Time
-                  </label>
-                  <div class="col-sm-10">
-                    <input type="time" class="form-control" />
-                  </div>
-                </div>
-
-                <div class="row mb-3">
-                  <label for="inputColor" class="col-sm-2 col-form-label">
-                    Color Picker
-                  </label>
-                  <div class="col-sm-10">
-                    <input
-                      type="color"
-                      class="form-control form-control-color"
-                      id="exampleColorInput"
-                      value="#4154f1"
-                      title="Choose your color"
-                    />
-                  </div>
-                </div>
-                <div class="row mb-3">
-                  <label for="inputPassword" class="col-sm-2 col-form-label">
-                    Textarea
-                  </label>
-                  <div class="col-sm-10">
-                    <textarea
-                      class="form-control"
-                      style="height: 100px"
-                    ></textarea>
-                  </div>
-                </div>
-                <fieldset class="row mb-3">
-                  <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
-                  <div class="col-sm-10">
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="gridRadios"
-                        id="gridRadios1"
-                        value="option1"
-                        checked
-                      />
-                      <label class="form-check-label" for="gridRadios1">
-                        First radio
-                      </label>
-                    </div>
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="gridRadios"
-                        id="gridRadios2"
-                        value="option2"
-                      />
-                      <label class="form-check-label" for="gridRadios2">
-                        Second radio
-                      </label>
-                    </div>
-                    <div class="form-check disabled">
-                      <input
-                        class="form-check-input"
-                        type="radio"
-                        name="gridRadios"
-                        id="gridRadios"
-                        value="option"
-                        disabled
-                      />
-                      <label class="form-check-label" for="gridRadios3">
-                        Third disabled radio
-                      </label>
-                    </div>
-                  </div>
-                </fieldset>
-                <div class="row mb-3">
-                  <legend class="col-form-label col-sm-2 pt-0">
-                    Checkboxes
-                  </legend>
-                  <div class="col-sm-10">
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        id="gridCheck1"
-                      />
-                      <label class="form-check-label" for="gridCheck1">
-                        Example checkbox
-                      </label>
-                    </div>
-
-                    <div class="form-check">
-                      <input
-                        class="form-check-input"
-                        type="checkbox"
-                        id="gridCheck2"
-                        checked
-                      />
-                      <label class="form-check-label" for="gridCheck2">
-                        Example checkbox 2
-                      </label>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="row mb-3">
-                  <label class="col-sm-2 col-form-label">Disabled</label>
-                  <div class="col-sm-10">
-                    <input
-                      type="text"
-                      class="form-control"
-                      value="Read only / Disabled"
-                      disabled
-                    />
-                  </div>
-                </div>
-
-                <div class="row mb-3">
-                  <label class="col-sm-2 col-form-label">Select</label>
-                  <div class="col-sm-10">
-                    <select
-                      class="form-select"
-                      aria-label="Default select example"
-                    >
-                      <option selected>Open this select menu</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div class="row mb-3">
-                  <label class="col-sm-2 col-form-label">Multi Select</label>
-                  <div class="col-sm-10">
-                    <select
-                      class="form-select"
-                      multiple
-                      aria-label="multiple select example"
-                    >
-                      <option selected>Open this select menu</option>
-                      <option value="1">One</option>
-                      <option value="2">Two</option>
-                      <option value="3">Three</option>
-                    </select>
-                  </div>
-                </div>
-
-                <div class="row mb-3">
-                  <label class="col-sm-2 col-form-label">Submit Button</label>
-                  <div class="col-sm-10">
-                    <button type="submit" class="btn btn-primary">
-                      Submit Form
-                    </button>
-                  </div>
-                </div>
-              </form>
-              <!-- End General Form Elements -->
-            </div>
-          </div>
-
-          <div class="col-lg-6">
-            <img
-              src="assets/img/provoCity.jpg"
-              alt="Provo City Image"
-              class="img-fluid"
-            />
           </div>
         </div>
       </section>
@@ -922,8 +774,6 @@
         <!-- You can delete the links only if you purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-        Designed by
-        <a href="https://bootstrapmade.com/">BootstrapMade</a>
       </div>
     </footer>
     <!-- End Footer -->

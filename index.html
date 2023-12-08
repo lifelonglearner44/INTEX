@@ -91,23 +91,24 @@
             <span>Home</span>
           </a>
         </li>
-        <!-- End Dashboard Nav -->
-        <li class="nav-item">
-          <a class="nav-link collapsed" href="original-index.html">
-            <i class="bi bi-person"></i>
-            <span>Original Index</span>
-          </a>
-        </li>
+
         <li class="nav-item">
           <a class="nav-link collapsed" href="dashboard.html">
-            <i class="bi bi-person"></i>
+            <i class="bi bi-bar-chart"></i>
             <span>Social Media Dashboard</span>
           </a>
         </li>
         <li class="nav-item">
           <a class="nav-link collapsed" href="survey.html">
-            <i class="bi bi-person"></i>
+            <i class="bi bi-menu-button-wide"></i>
             <span>Social Media Survey</span>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link collapsed" href="pages-contact.html">
+            <i class="bi bi-envelope"></i>
+            <span>Contact</span>
           </a>
         </li>
 
@@ -117,68 +118,19 @@
             <span>F.A.Q</span>
           </a>
         </li>
-        <!-- End F.A.Q Page Nav -->
-
-        <li class="nav-item">
-          <a class="nav-link collapsed" href="pages-contact.html">
-            <i class="bi bi-envelope"></i>
-            <span>Contact</span>
+        <li>
+          <a class="nav-link collapsed" href="pages-login.html">
+            <i class="bi bi-person"></i>
+            <span>Admin Login</span>
           </a>
         </li>
-        <!-- End Contact Page Nav -->
-
-        <!-- In the future, there will only be one nav item - admin login, then once on the admin side, 
-          the user can view the report and create a new account (maybe they will also edit their profile) -->
-        <li class="nav-item">
-          <a
-            class="nav-link collapsed"
-            data-bs-target="#components-nav"
-            data-bs-toggle="collapse"
-            href="#"
-          >
-            <i class="bi bi-menu-button-wide"></i>
-            <span>Admin</span>
-            <i class="bi bi-chevron-down ms-auto"></i>
-          </a>
-          <ul
-            id="components-nav"
-            class="nav-content collapse"
-            data-bs-parent="#sidebar-nav"
-          >
-            <li>
-              <a href="pages-register.html">
-                <i class="bi bi-circle"></i>
-                <span>Admin Register</span>
-              </a>
-            </li>
-            <li>
-              <a href="pages-login.html">
-                <i class="bi bi-circle"></i>
-                <span>Admin Login</span>
-              </a>
-            </li>
-            <li>
-              <a href="adminReport.html">
-                <i class="bi bi-circle"></i>
-                <span>Admin Report</span>
-              </a>
-            </li>
-            <li>
-              <a href="users-profile.html">
-                <i class="bi bi-circle"></i>
-                <span>Admin Profile</span>
-              </a>
-            </li>
-          </ul>
-        </li>
-        <!-- End Components Nav -->
       </ul>
     </aside>
     <!-- End Sidebar-->
 
     <main id="main" class="main">
       <div class="pagetitle">
-        <h1>Home</h1>
+        <!-- <h1>Home</h1> -->
         <nav>
           <ol class="breadcrumb">
             <!-- <li class="breadcrumb-item"><a href="index.html">Home</a></li>
@@ -187,84 +139,125 @@
         </nav>
       </div>
       <!-- End Page Title -->
+      <!-- Landing Page Banner -->
+      <div class="landing-banner" style="margin-bottom: 15px">
+        <!-- <div class="logo"><img src="assets/img/logo.png" alt="" /></div> -->
+        <h1
+          style="
+            font-size: 4.5rem;
+            text-align: center;
+            margin-top: 50px;
+            margin-bottom: 50px;
+          "
+        >
+          <b>Media Matters:</b>
+          Improving Mental Health through Healthy Social Media Use
+        </h1>
+      </div>
 
-      <!-- example form submission to db -->
-      <form action="/surveyPost" method="POST">
-        <fieldset style="width: 0px">
-          <br />
-          <legend>Employee Info:</legend>
-          <label for="empFirst">First Name:</label>
-          <input type="text" id="empFirst" name="empFirst" />
-          <br />
-          <br />
-          <!-- <label for="empLast">Last Name:</label>
-          <input type="text" id=" empLast " name="empLast" />
-          <br />
-          <br />
-          <fieldset>
-            <legend>Work Status:</legend>
-            <input
-              type="radio"
-              id="rbFulltime"
-              name="workstatus"
-              value="F"
-              checked
-            />
-            <label for="rbFulltime">Full-time</label>
-            <br />
-            <input type="radio" id="rbParttime" name="workstatus" value="P" />
-            <label for="rbParttime">Part-time</label>
-            <br />
-          </fieldset>
-          <br /> -->
-        </fieldset>
-        <br />
-        <button type="submit">Save</button>
-      </form>
-
-      <!-- example data pull from db -->
-      <form action="editEmployee" method="GET">
-        <label for="FirstName">Enter First Name:</label>
-        <input id="FirstName" type="text" name="FirstName" />
-        <br />
-        <label for="LastName">Enter Last Name:</label>
-        <input id="LastName" type="text" name="LastName" />
-        <br />
-        <label for="Email">Receive Emails?</label>
-        <input id="Email" type="checkbox" name="Email" value="Y" checked />
-        <br />
-        <input type="submit" value="Update" />
-      </form>
-      <!-- end example -->
       <section class="section">
         <div class="row align-items-top">
           <div class="col-lg-6">
-            <!-- Default Card -->
+            <!-- Mental Health Information Card -->
             <div class="card">
               <div class="card-body">
-                <h5 class="card-title">Site Purpose</h5>
-                The purpose of this site is to improve the mental health of
-                Provo residents. Please take our survey on Social Media and
-                Mental health to help us know how to best help Provo residents.
-                <br />
-                <br />
-                Also, check out our dashboard to find insights about how Provo
-                residents are doing with their media use and mental health.
+                <h2 class="card-title">
+                  Understanding Mental Health and Social Media
+                </h2>
+                <p class="card-text">
+                  Explore the intricate relationship between mental health and
+                  social media. Discover insights to help you navigate the
+                  impact of digital platforms on your well-being.
+                </p>
+                <a href="/pages-faq.html" class="btn btn-primary">Learn More</a>
+              </div>
+            </div>
+            <!-- Take the Survey Card -->
+            <div class="card">
+              <div class="card-body">
+                <h2 class="card-title">
+                  Take Our Mental Health and Social Media Survey
+                </h2>
+                <p class="card-text">
+                  Contribute to our ongoing research by participating in a
+                  survey designed to understand the mental health experiences of
+                  Provo residents in the context of social media use.
+                </p>
+                <a href="/survey.html" class="btn btn-primary">Take Survey</a>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-body">
+                <h2 class="card-title">
+                  Explore Insights with Our Interactive Dashboard
+                </h2>
+                <p class="card-text">
+                  Dive into data-driven insights about how Provo residents are
+                  engaging with social media and its impact on mental health.
+                  Our interactive dashboard provides a dynamic way to explore
+                  trends and patterns.
+                </p>
+                <a href="/dashboard.html" class="btn btn-primary">
+                  Explore Dashboard
+                </a>
+              </div>
+            </div>
+            <!-- Contact Us Card -->
+            <div class="card">
+              <div class="card-body">
+                <h2 class="card-title">Have Questions? Contact Us!</h2>
+                <p class="card-text">
+                  If you have additional questions, need support, or want to
+                  share your thoughts with us, feel free to reach out. We are
+                  here to help!
+                </p>
+                <a href="/pages-contact.html" class="btn btn-primary">
+                  Contact Us
+                </a>
               </div>
             </div>
 
             <!-- End Default Card -->
           </div>
+
           <div class="col-lg-6">
+            <!-- Add any other content related to the first image if needed -->
+
             <img
-              src="assets/img/provoCity.jpg"
+              src="assets/img/computers.jpg"
               alt="Provo City Image"
               class="img-fluid"
             />
+            <!-- <img
+              src="assets/img/tablePhone.jpg"
+              alt="Provo City Image"
+              class="img-fluid mx-auto mb-3"
+              style="display: block"
+            /> -->
+            <!-- Add any other content related to the second image if needed -->
           </div>
         </div>
+
+        <!-- Swiper -->
+
+        <!-- <div class="col-lg-6">
+          <div class="swiper-container">
+            <div class="swiper-wrapper">
+              <div class="swiper-slide">
+                <img src="assets/img/provoCity.jpg" alt="Provo City Image" />
+              </div>
+              <div class="swiper-slide">
+                <img src="assets/img/middleSchool.png" alt="Another Image" />
+              </div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+        </div> -->
       </section>
     </main>
+
     <!-- End #main -->
 
     <!-- ======= Footer ======= -->
@@ -279,8 +272,6 @@
         <!-- You can delete the links only if you purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
-        Designed by
-        <a href="https://bootstrapmade.com/">BootstrapMade</a>
       </div>
     </footer>
     <!-- End Footer -->
@@ -301,6 +292,8 @@
     <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
     <script src="assets/vendor/tinymce/tinymce.min.js"></script>
     <script src="assets/vendor/php-email-form/validate.js"></script>
+
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
     <!-- Template Main JS File -->
     <script src="assets/js/main.js"></script>

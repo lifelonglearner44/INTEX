@@ -5,7 +5,7 @@ let app = express();
 var path = require('path');
 const bodyParser = require('body-parser');
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // Set up express-session middleware
 app.use(

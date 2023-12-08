@@ -122,7 +122,6 @@ app.post('/loginAttempt', async (req, res) => {
     console.log('req.body:', req.body);
     const { Username, Password } = req.body;
 
-    // *** remove the .first()
     const user = await knex('User').where({ Username, Password }).first();
     console.log('user', user);
 
@@ -221,16 +220,9 @@ app.post('/surveyPost', async (req, res) => {
     // Now you can use Survey_Response_ID in your subsequent logic
     console.log('Generated Survey_Response_ID:', Survey_Response_ID);
 
-    // console.log('Insert survey Result:', surveyResult);
     // console.log('id', surveyResult[0]);
     // // console.log('Insert survey Result:', surveyResult);
-    // console.log('req.body.Organization_ID:', req.body.Organization_ID);
-    // console.log('req.body.Social_Platform_ID:', req.body.Social_Platform_ID);
-
-    //  Survey_Response_ID: 1,
-    // req.body.Organization_ID,
-    // const Survey_Response_ID = 1;
-    const Organization_IDs = req.body.Organization_ID || []; // Set your desired Organization_ID
+    const Organization_IDs = req.body.Organization_ID || [];
     const Social_Platform_IDs = req.body.Social_Platform_ID || [];
     // console.log('Organization_IDs', Organization_IDs);
     // console.log('Social_Platform_IDs', Social_Platform_IDs);

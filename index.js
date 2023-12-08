@@ -238,26 +238,59 @@ app.post('/surveyPost', async (req, res) => {
       Sleep_Issues: req.body.Sleep_Issues,
     };
 
-    const Main = {
-      Survey_Response_ID: 1,
-      Organization_ID: 1,
-      Social_Platform_ID: 1,
-    };
-
     console.log('Survey_Responses:', Survey_Responses);
 
-    const surveyResult = await knex('Survey_Responses').insert(
-      Survey_Responses
-    );
+    const surveyResult = await knex('Survey_Responses')
+      .insert(Survey_Responses)
+      .returning('Survey_Response_ID');
+
+    // Assuming surveyResult is an array with the generated IDs
+    const Survey_Response_ID = surveyResult[0].Survey_Response_ID;
+
+    // Now you can use Survey_Response_ID in your subsequent logic
+    console.log('Generated Survey_Response_ID:', Survey_Response_ID);
+
     console.log('Insert survey Result:', surveyResult);
+    console.log('id', surveyResult[0]);
+    // console.log('Insert survey Result:', surveyResult);
+    console.log('req.body.Organization_ID:', req.body.Organization_ID);
+    console.log('req.body.Social_Platform_ID:', req.body.Social_Platform_ID);
 
-    const mainResult = await knex('Main').insert(Main);
+    //  Survey_Response_ID: 1,
+    // req.body.Organization_ID,
+    // const Survey_Response_ID = 1;
+    const Organization_IDs = req.body.Organization_ID || []; // Set your desired Organization_ID
+    const Social_Platform_IDs = req.body.Social_Platform_ID || [];
+    console.log('Organization_IDs', Organization_IDs);
+    console.log('Social_Platform_IDs', Social_Platform_IDs);
+    const mainEntries = [];
 
-    console.log('Main Result:', mainResult);
+    for (const organizationID of Organization_IDs) {
+      for (const socialPlatformID of Social_Platform_IDs) {
+        mainEntries.push({
+          Survey_Response_ID: Survey_Response_ID,
+          Organization_ID: organizationID,
+          Social_Platform_ID: socialPlatformID,
+        });
+      }
+    }
+
+    console.log('Main Entries:', mainEntries);
+
+    // Use a for...of loop to insert each entry into the 'Main' table
+    for (const entry of mainEntries) {
+      try {
+        await knex('Main').insert(entry);
+        console.log('Inserted:', entry);
+      } catch (error) {
+        console.error('Error inserting:', error);
+      }
+    }
+    // console.log('Main Result:', mainResult);
 
     // res.redirect('/index.html');
 
-    res.send('Data successfully inserted into the "Test" table!');
+    res.send('Data successfully inserted into the table!');
   } catch (error) {
     console.error('Database Insert Error:', error);
     res.status(500).send('Internal Server Error');

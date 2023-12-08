@@ -165,95 +165,73 @@
                 </p> -->
 
                 <!-- Table with stripped rows -->
-                <table class="table datatable">
-                  <thead>
-                    <tr>
-                      <th>Survey_Response_ID</th>
-                      <th>Origin</th>
-                      <th data-type="date" data-format="YYYY/DD/MM">Date</th>
-                      <th>Time</th>
-                      <th>Age</th>
-                      <th>Gender</th>
-                      <th>Relationship Status</th>
-                      <th>Occupation Status</th>
-                      <th>Use Social Media</th>
-                      <th>Average Usage Hours</th>
-                      <th>Without Specific Purpose</th>
-                      <th>Distracted From Tasks</th>
-                      <th>Restless Without</th>
-                      <th>Easily Distracted</th>
-                      <th>Bothered By Worries</th>
-                      <th>Difficulty Concentrating</th>
-                      <th>Comparison Through Social Media</th>
-                      <th>Comparison Feelings</th>
-                      <th>Validation From Social Media</th>
-                      <th>Depressed Or Down</th>
-                      <th>Interest In Daily Activities</th>
-                      <th>Sleep Issues</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <% data.forEach(item => { %>
-                    <tr>
-                      <td><%= item.Survey_Response_ID %></td>
-                      <td><%= item.Origin %></td>
-                      <td><%= item.Date %></td>
-                      <td><%= item.Time %></td>
-                      <td><%= item.Age %></td>
-                      <td><%= item.Gender %></td>
-                      <td><%= item.Relationship_Status %></td>
-                      <td><%= item.Occupation_Status %></td>
-                      <td><%= item.Use_Social_Media %></td>
-                      <td><%= item.Average_Usage_Hours %></td>
-                      <td><%= item.Without_Specific_Purpose %></td>
-                      <td><%= item.Distracted_From_Tasks %></td>
-                      <td><%= item.Restless_Without %></td>
-                      <td><%= item.Easily_Distracted %></td>
-                      <td><%= item.Bothered_By_Worries %></td>
-                      <td><%= item.Difficulty_Concentrating %></td>
-                      <td><%= item.Comparison_Through_Social_Media %></td>
-                      <td><%= item.Comparison_Feelings %></td>
-                      <td><%= item.Validation_From_Social_Media %></td>
-                      <td><%= item.Depressed_Or_Down %></td>
-                      <td><%= item.Interest_In_Daily_Activities %></td>
-                      <td><%= item.Sleep_Issues %></td>
+                <div class="table-responsive">
+                  <table class="table datatable custom-table">
+                    <thead>
+                      <tr>
+                        <th>Survey_Response_ID</th>
+                        <th>Origin</th>
+                        <th data-type="date" data-format="YYYY/DD/MM">Date</th>
+                        <th>Time</th>
+                        <th>Age</th>
+                        <th>Gender</th>
+                        <th>Relationship Status</th>
+                        <th>Occupation Status</th>
+                        <th>Use Social Media</th>
+                        <th>Average Usage Hours</th>
+                        <th>Without Specific Purpose</th>
+                        <th>Distracted From Tasks</th>
+                        <th>Restless Without</th>
+                        <th>Easily Distracted</th>
+                        <th>Bothered By Worries</th>
+                        <th>Difficulty Concentrating</th>
+                        <th>Comparison Through Social Media</th>
+                        <th>Comparison Feelings</th>
+                        <th>Validation From Social Media</th>
+                        <th>Depressed Or Down</th>
+                        <th>Interest In Daily Activities</th>
+                        <th>Sleep Issues</th>
+                        <!-- <th>Organizations</th>
+                      <th>Social Platorms</th> -->
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <% data.forEach(item => { %>
+                      <tr>
+                        <td><%= item.Survey_Response_ID %></td>
+                        <td><%= item.Origin %></td>
+                        <td><%= item.Date %></td>
+                        <td><%= item.Time %></td>
+                        <td><%= item.Age %></td>
+                        <td><%= item.Gender %></td>
+                        <td><%= item.Relationship_Status %></td>
+                        <td><%= item.Occupation_Status %></td>
+                        <td><%= item.Use_Social_Media %></td>
+                        <td><%= item.Average_Usage_Hours %></td>
+                        <td><%= item.Without_Specific_Purpose %></td>
+                        <td><%= item.Distracted_From_Tasks %></td>
+                        <td><%= item.Restless_Without %></td>
+                        <td><%= item.Easily_Distracted %></td>
+                        <td><%= item.Bothered_By_Worries %></td>
+                        <td><%= item.Difficulty_Concentrating %></td>
+                        <td><%= item.Comparison_Through_Social_Media %></td>
+                        <td><%= item.Comparison_Feelings %></td>
+                        <td><%= item.Validation_From_Social_Media %></td>
+                        <td><%= item.Depressed_Or_Down %></td>
+                        <td><%= item.Interest_In_Daily_Activities %></td>
+                        <td><%= item.Sleep_Issues %></td>
+                        <!-- <td><%= item.Organization_Affiliation %></td>
+                      <td><%= item.Social_Platorm %></td> -->
 
-                      <!-- Add more table cells based on your database columns -->
-                    </tr>
-                    <% }); %>
-                  </tbody>
-                </table>
-                <!-- End Table with stripped rows -->
+                        <!-- Add more table cells based on your database columns -->
+                      </tr>
+                      <% }); %>
+                    </tbody>
+                  </table>
+                  <!-- End Table with stripped rows -->
+                </div>
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-      <section class="section">
-        <div class="row align-items-top">
-          <div class="col-lg-6">
-            <!-- Default Card -->
-            <div class="card">
-              <div class="card-body">
-                <h5 class="card-title">Site Purpose</h5>
-                The purpose of this site is to improve the mental health of
-                Provo residents. Please take our survey on Social Media and
-                Mental health to help us know how to best help Provo residents.
-                <br />
-                <br />
-                Also, check out our dashboard to find insights about how Provo
-                residents are doing with their media use and mental health.
-              </div>
-            </div>
-
-            <!-- End Default Card -->
-          </div>
-          <div class="col-lg-6">
-            <img
-              src="assets/img/provoCity.jpg"
-              alt="Provo City Image"
-              class="img-fluid"
-            />
           </div>
         </div>
       </section>

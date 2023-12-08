@@ -125,6 +125,27 @@ app.get('/adminReport.ejs', authenticate, async (req, res) => {
     const isAuthenticated = req.session.loggedIn;
 
     // Fetch data from the database using knex if needed
+    // const data = await knex('Survey_Responses')
+    //   .select('*')
+    //   .join(
+    //     'Main',
+    //     'Survey_Responses.Survey_Response_ID',
+    //     '=',
+    //     'Main.Survey_Response_ID'
+    //   )
+    //   .join(
+    //     'Organization_Information',
+    //     'Main.Organization_ID',
+    //     '=',
+    //     'Organization_Information.Organization_ID'
+    //   )
+    //   .join(
+    //     'Social_Platform_Information',
+    //     'Main.Social_Platform_ID',
+    //     '=',
+    //     'Social_Platform_Information.Social_Platform_ID'
+    //   )
+    //   .orderBy('Survey_Responses.Survey_Response_ID', 'asc');
     const data = await knex.select().from('Survey_Responses');
 
     // Render the EJS template

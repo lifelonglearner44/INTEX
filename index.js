@@ -246,10 +246,10 @@ app.post('/surveyPost', async (req, res) => {
 
     console.log('Survey_Responses:', Survey_Responses);
 
-    // const surveyResult = await knex('Survey_Responses').insert(
-    //   Survey_Responses
-    // );
-    // console.log('Insert survey Result:', surveyResult);
+    const surveyResult = await knex('Survey_Responses').insert(
+      Survey_Responses
+    );
+    console.log('Insert survey Result:', surveyResult);
 
     const mainResult = await knex('Main').insert(Main);
 
